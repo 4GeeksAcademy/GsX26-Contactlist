@@ -15,6 +15,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			obtenerContactos: () => {
+             fetch("https://playground.4geeks.com/apis/fake/contact/agenda")
+			 .then((response) => response.json())
+			 .then((data) => setStore({contacts: data}))
+			 .catch((error) => console.log(error));
+			},
+			añadirContacto: () => {
+				fetch("https://playground.4geeks.com/apis/fake/contact/")
+				method:"POST"
+				headers: {
+					"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				address: urlphoto,
+				agenda_slug: "Gonzalo",
+				email: email,
+				full_name: name,
+				phone: phone,
+			  }),
+		
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

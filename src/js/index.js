@@ -1,21 +1,15 @@
 //import react into the bundle
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-//include jquery into the bundle and store its contents into the $ variable
-//import $ from "jquery";
-//include bootstrap npm library into the bundle
-import 'bootstrap';
-//import './icons.js';
+import React from 'react'
+import {createRoot} from 'react-dom/client'
 
 //include your index.scss file into the bundle
-import '../styles/index.css';
+import "../styles/index.css";
 
 //import your own components
-import Layout from './Layout.jsx';
+import Layout from './Layout.jsx'
+
+//
+const root = createRoot(document.querySelector("#app"))
 
 //render your react application
-ReactDOM.render(
-	<Layout />,
-	document.querySelector('#app')
-);
+root.render(<Layout/>)
